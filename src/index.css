@@ -36,12 +36,13 @@ html {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    width: 100%;
+    max-width: 300px;
 }
 
 .create-post-section input,
 .create-post-section textarea {
-    width: 300px;
+    width: 100%;
     margin: 10px 0;
     padding: 10px;
     border: 1px solid #ccc;
@@ -89,4 +90,11 @@ html {
     max-width: 100%;
     border-radius: 8px;
     margin-top: 10px;
+}
+
+.create-post-section button:disabled {
+    background-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+    opacity: 0.7;
 }

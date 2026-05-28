@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
 
 const Feed = () => {
 
@@ -10,9 +11,19 @@ const Feed = () => {
         }
     ])
 
+    useEffect(() => {
+        axios.get('http://localhost:5000/post/all')
+            .then(response => {
+                setPosts(response.data.posts)
+            })
+            .catch(error => {
+                console.error('Error fetching posts:', error)
+            })
+    }, [])
+
     return (
         <section className='feed-section'>
-            <h2>Feed</h2>
+            <h2>News Feed</h2>
             <p>Welcome to your feed</p>
             {
                 posts.length === 0 ? (<p>No posts to show. Create your first post!</p>) :
